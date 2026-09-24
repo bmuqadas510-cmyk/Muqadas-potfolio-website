@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.03em;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom delicate luxury scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23252b;
+  border-radius: 9999px;
+  border: 2px solid #090a0c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a880;
+}
+
+/* Luxury subtle glass & glow utilities */
+.glass-panel {
+  background: rgba(18, 20, 26, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 25, 33, 0.85);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 20px 0 rgba(212, 175, 55, 0.08);
+  transform: translateY(-2px);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF6E5 0%, #E6C687 45%, #C5A880 75%, #F7E7CE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxury text shimmer effect */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #FFF8EB 0%,
+    #FFF8EB 35%,
+    #FFE6A3 50%,
+    #FFF8EB 65%,
+    #FFF8EB 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 7s infinite linear;
+}
+
+/* Subtle Floating Particle */
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-24px) translateX(12px);
+    opacity: 0.7;
+  }
+}
+
+.floating-particle {
+  animation: floatParticle 8s ease-in-out infinite;
+}
+
+/* Glass reflection shine on hover */
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(212, 175, 55, 0.08) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.85s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glass-shine:hover::after {
+  left: 130%;
+  opacity: 1;
+}
+
+/* Custom Cursor default suppression on desktop pointer */
+@media (pointer: fine) {
+  body {
+    cursor: default;
+  }
+  a, button, [role="button"] {
+    cursor: pointer;
+  }
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.15);
+}
+
+/* Noise overlay */
+.bg-radial-luxury {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 40%, rgba(197, 168, 128, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+}
+
